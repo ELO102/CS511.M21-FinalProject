@@ -1,0 +1,8 @@
+ID,Ten,NgayCapNhat,NgayDenHan,QuaTrinh,IsDone,ChiTiet,DoQuanTrong
+1,bi?n,12/06/2022,02/07/2022,30.0,false,d?n Ch i bi?n,4
+2,xm,10/06/2022,20/07/2022,0.0,false,?i ti ngho l?y u ra m?ng ?p - Ki?p phong tr?n thu h?p chuy?n yu ng,1
+3,c?u lng,02/06/2022,13/07/2022,0.0,false,chi c?u lng,3
+4,d?n ph?ng t?m,12/06/2022,12/07/2022,0.0,false,d?n ph?ng t?m,4
+5,ht ?t,10/06/2022,01/07/2022,0.0,false,th? thch ht ?t 100 ci,2
+6,pizza,01/06/2022,28/07/2022,60.0,false,h?c lm pizza,1
+7,ny,15/06/2022,15/07/2022,0.0,false,c ng?i yu,1

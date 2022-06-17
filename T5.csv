@@ -1,0 +1,11 @@
+ID,Ten,NgayCapNhat,NgayDenHan,QuaTrinh,IsDone,ChiTiet,DoQuanTrong
+1,giao g,13/05/2022,19/05/2022,50.0,true,lm g giao ch H?i,4
+2,d?n b?p,15/05/2022,18/05/2022,75.0,false,lau b?p + lau sn + r?a chn + thay b?nh gas,2 
+3,gi?t th?m,01/05/2022,07/05/2022,100.0,true,gi?t th?m,1
+4,r?a xe,15/04/2022,20/05/2022,0.0,false,ht b?i + lau c?a s? + r?a thn xe + chi ?ng c,5
+5,v?t rc,28/05/2022,30/05/2022,100.0,true,v?t rc,3
+6,d?n bn th?,11/05/2022,12/05/2022,66.6,true,lau b?i + c?m bng + th?p nhang,4
+7,c?t c?,20/05/2022,23/05/2022,100.0,true,c?t c? + phun thu?c,4
+8,h?c n,01/05/2022,31/05/2022,0.0,false,n g? c?ng ?c,5
+9,i bi,19/05/2022,23/05/2022,100.0,true,n?m bi trong b? n?c - m?nh chi vi gi?a ?t tr?i,1
+10,concert,10/05/2022,20/05/2022,100.0,true,Thng 5 m?nh c nhau - Uyn Linh Trung Qun,5

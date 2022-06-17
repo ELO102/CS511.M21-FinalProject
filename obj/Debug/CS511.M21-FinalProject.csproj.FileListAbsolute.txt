@@ -1,0 +1,12 @@
+E:\Study\CS511.M21\CS511.M21-FinalProject\bin\Debug\CS511.M21-FinalProject.exe.config
+E:\Study\CS511.M21\CS511.M21-FinalProject\bin\Debug\CS511.M21-FinalProject.exe
+E:\Study\CS511.M21\CS511.M21-FinalProject\bin\Debug\CS511.M21-FinalProject.pdb
+E:\Study\CS511.M21\CS511.M21-FinalProject\obj\Debug\CS511.M21-FinalProject.csproj.AssemblyReference.cache
+E:\Study\CS511.M21\CS511.M21-FinalProject\obj\Debug\CS511.M21-FinalProject.csproj.SuggestedBindingRedirects.cache
+E:\Study\CS511.M21\CS511.M21-FinalProject\obj\Debug\CS511.M21_FinalProject.MainApp.resources
+E:\Study\CS511.M21\CS511.M21-FinalProject\obj\Debug\CS511.M21_FinalProject.Properties.Resources.resources
+E:\Study\CS511.M21\CS511.M21-FinalProject\obj\Debug\CS511.M21-FinalProject.csproj.GenerateResource.cache
+E:\Study\CS511.M21\CS511.M21-FinalProject\obj\Debug\CS511.M21-FinalProject.csproj.CoreCompileInputs.cache
+E:\Study\CS511.M21\CS511.M21-FinalProject\obj\Debug\CS511.M21-FinalProject.exe
+E:\Study\CS511.M21\CS511.M21-FinalProject\obj\Debug\CS511.M21-FinalProject.pdb
+E:\Study\CS511.M21\CS511.M21-FinalProject\obj\Debug\CS511.M21_FinalProject.CelendarDay.resources

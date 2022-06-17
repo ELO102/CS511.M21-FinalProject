@@ -1,0 +1,43 @@
+class CongViec:
+ID
+Ten
+NgayCapNhat
+NgayDenHan
+QuaTrinh
+IsDone
+ChiTiet
+DoQuanTrong
+
+- Thêm Xóa công việc
+- Chỉnh sửa công việc
+- Hiển thị thông tin công việc theo bảng
+- Sắp xếp
+- Hiển thị lịch có đánh dấu theo màu dựa vào lượng công việc
+- Cập nhật công việc làm hằng ngày (tự đánh giá)
+- Nhật kí công việc/ngày
+- Thống kê công việc đã làm trong tháng
+ + tháng 30 ngày tới: tròn - độ quan trọng
+ + tháng đã qua: cột - lượng công việc
+- Xuất, Nhập file chứa công việc
+
+Route1 - Homepage
+- Công việc sắp đến hạn
+- Công việc quan trọng
+- banner
+Route2 - Bảng danh sách công việc
+- Table View
+- Click -> CongViecDetail
+- Filter
+- Sort
+- Highlight Color
+- Add
+- Select -> Del
+Route3 - Lịch tháng
+- Line header
+ + Pre/Next Month
+ + Current Month
+- Month Celendar hand design
+ + - Click -> CongViecDetail
+Route4 - Nhật ký công việc 
+Route5 - Thông tin 30 ngày tới
+Route6 - Thông tin các tháng trước (từng tháng)
