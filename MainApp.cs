@@ -56,10 +56,12 @@ namespace CS511.M21_FinalProject
                             CelendarDay celendarDay = new CelendarDay();
                             int dday = count - startDayofweek + 1;
                             celendarDay.days(dday);
-                            string curdate = new DateTime(year, month, dday).ToString("dd/MM/yyyy");
+                            string curdate = new DateTime(year, month, dday).ToString("d/M/yyyy");
                             IEnumerable<DataRow> selectedRows = full_dt.AsEnumerable().Where(row => (row.Field<string>("NgayDenHan") == curdate));
+                            string temp =  full_dt.Rows[0].Field<string>("NgayDenHan");
                             celendarDay.soluongCongViec(selectedRows.Count());
-                            string today = DateTime.Now.ToString("dd/MM/yyyy");
+                            
+                            string today = DateTime.Now.ToString("d/M/yyyy");
                             if (curdate == today) celendarDay.BackColor = Color.Lime;
                             tableLayoutPanel_Celendar.Controls.Add(celendarDay, j, i);
                         }

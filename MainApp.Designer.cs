@@ -112,9 +112,11 @@
             // 
             // panel_main
             // 
-            this.panel_main.Controls.Add(this.panel_Route1);
             this.panel_main.Controls.Add(this.panel_RouteHome);
+            this.panel_main.Controls.Add(this.panel_Route1);
             this.panel_main.Controls.Add(this.panel_Route2);
+            
+
             this.panel_main.Controls.Add(this.panel_NavBar);
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_main.Location = new System.Drawing.Point(0, 0);
