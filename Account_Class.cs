@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace CS511.M21_FinalProject
 {
@@ -21,6 +23,32 @@ namespace CS511.M21_FinalProject
         public string MK;
         public string port;
 
-        public void CreateAccountJSON() { }
+        public void CreateAccountJSON()
+        {
+            JsonSerializer serializer = new JsonSerializer();
+            serializer.NullValueHandling = NullValueHandling.Ignore;
+
+            using (StreamWriter sw = new StreamWriter(@"E:\Study\CS511.M21\CS511.M21-FinalProject\Data\ClientJSON\"+this.port+".txt"))
+            using (JsonWriter writer = new JsonTextWriter(sw))
+            {
+                serializer.Serialize(writer, this);
+            }
+
+            return;
+        }
+
+        public void LoadAccountJSON(string path)
+        {
+            Account_Class new_acc = new Account_Class();
+            string JsonString = File.ReadAllText(path);
+
+            new_acc = JsonConvert.DeserializeObject<Account_Class>(JsonString);
+            this.Ten = new_acc.Ten;
+            this.TK = new_acc.TK;
+            this.MK = new_acc.MK;
+            this.port = new_acc.port;
+
+            return;
+        }
     }
 }

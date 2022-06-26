@@ -8,17 +8,17 @@ using System.Net.Sockets;
 
 namespace CS511.M21_FinalProject
 {
-    public partial class ServerService
+    public partial class ClientService
     {
-        public ServerService()
+        public ClientService()
         {
 
         }
 
         IPEndPoint IP;
         Socket client;
-        Account_Class acc;
-        void Connect()
+        
+        void Connect(Account_Class acc)
         {
             IP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), Int32.Parse(acc.port));
             client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);

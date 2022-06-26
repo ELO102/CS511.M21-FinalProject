@@ -47,16 +47,18 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(278, 64);
             this.label1.TabIndex = 1;
-            this.label1.Text = "HOME TALK";
+            this.label1.Text = "MESSENGER";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button1
             // 
+            this.button1.Image = global::CS511.M21_FinalProject.Properties.Resources.unvisible;
             this.button1.Location = new System.Drawing.Point(230, 149);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(60, 24);
             this.button1.TabIndex = 14;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox3
             // 
@@ -64,6 +66,7 @@
             this.textBox3.Location = new System.Drawing.Point(17, 149);
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.textBox3.Name = "textBox3";
+            this.textBox3.PasswordChar = '*';
             this.textBox3.Size = new System.Drawing.Size(207, 24);
             this.textBox3.TabIndex = 13;
             // 
@@ -116,6 +119,7 @@
             this.linkLabel1.TabIndex = 19;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Đăng ký";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // LogIn_Form
             // 

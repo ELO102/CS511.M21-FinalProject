@@ -13,3 +13,6 @@ E:\Study\CS511.M21\CS511.M21-FinalProject\obj\Debug\CS511.M21-FinalProject.exe
 E:\Study\CS511.M21\CS511.M21-FinalProject\obj\Debug\CS511.M21-FinalProject.pdb
 E:\Study\CS511.M21\CS511.M21-FinalProject\obj\Debug\CS511.M21_FinalProject.ChatBox_Form.resources
 E:\Study\CS511.M21\CS511.M21-FinalProject\obj\Debug\CS511.M21_FinalProject.FriendList_UCItem.resources
+E:\Study\CS511.M21\CS511.M21-FinalProject\bin\Debug\Newtonsoft.Json.dll
+E:\Study\CS511.M21\CS511.M21-FinalProject\bin\Debug\Newtonsoft.Json.xml
+E:\Study\CS511.M21\CS511.M21-FinalProject\obj\Debug\CS511.M21-FinalProject.csproj.CopyComplete
