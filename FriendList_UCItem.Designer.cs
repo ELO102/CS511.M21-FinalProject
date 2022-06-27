@@ -44,6 +44,9 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 15;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.MouseEnter += new System.EventHandler(this.FriendList_UCItem_MouseHover);
+            this.pictureBox2.MouseLeave += new System.EventHandler(this.FriendList_UCItem_MouseLeave);
+            this.pictureBox2.MouseHover += new System.EventHandler(this.FriendList_UCItem_MouseHover);
             // 
             // button1
             // 
@@ -64,6 +67,9 @@
             this.label1.Size = new System.Drawing.Size(46, 18);
             this.label1.TabIndex = 18;
             this.label1.Text = "label1";
+            this.label1.MouseEnter += new System.EventHandler(this.FriendList_UCItem_MouseHover);
+            this.label1.MouseLeave += new System.EventHandler(this.FriendList_UCItem_MouseLeave);
+            this.label1.MouseHover += new System.EventHandler(this.FriendList_UCItem_MouseHover);
             // 
             // FriendList_UCItem
             // 
@@ -76,7 +82,7 @@
             this.MinimumSize = new System.Drawing.Size(252, 76);
             this.Name = "FriendList_UCItem";
             this.Size = new System.Drawing.Size(252, 76);
-            this.Click += new System.EventHandler(this.FriendList_UCItem_Click);
+            this.MouseEnter += new System.EventHandler(this.FriendList_UCItem_MouseHover);
             this.MouseLeave += new System.EventHandler(this.FriendList_UCItem_MouseLeave);
             this.MouseHover += new System.EventHandler(this.FriendList_UCItem_MouseHover);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

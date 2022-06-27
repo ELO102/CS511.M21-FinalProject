@@ -17,7 +17,7 @@ namespace CS511.M21_FinalProject
     {
         public MessengerService(string port)
         {
-            IP_client = new IPEndPoint(IPAddress.Any, int.Parse(port));
+            IP_client = new IPEndPoint(IPAddress.Parse("127.0.0.1"), int.Parse(port));
             client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
             client.Bind(IP_client);
 
@@ -35,16 +35,19 @@ namespace CS511.M21_FinalProject
         {
             return new Thread(() =>
             {
-                client.Listen(1000);
-                Socket target = client.Accept();
-                string target_port = GetPort_Socket(target);
+                while (true)
+                {
+                    client.Listen(1000);
+                    Socket target = client.Accept();
+                    string target_port = GetPort_Socket(target);
 
-                ListTarget.Add(target);
-                MessageOfTarget.Add(target_port, new List<string>());
+                    ListTarget.Add(target);
+                    MessageOfTarget.Add(target_port, new List<string> { });
 
-                Thread receiveThread = new Thread(Receive);
-                receiveThread.IsBackground = true;
-                receiveThread.Start(target);
+                    Thread receiveThread = new Thread(Receive);
+                    receiveThread.IsBackground = true;
+                    receiveThread.Start(target);
+                }
             });
         }
 
@@ -101,6 +104,14 @@ namespace CS511.M21_FinalProject
         {
             string port = socket.LocalEndPoint.ToString().Split(':')[1];
             return int.Parse(port).ToString("0000");
+        }
+        public List<string> GetMessage_Port(string port)
+        {
+            if (MessageOfTarget.ContainsKey(port))
+            {
+                return MessageOfTarget[port];
+            }
+            return new List<string> { };
         }
     }
 }

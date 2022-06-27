@@ -35,10 +35,5 @@ namespace CS511.M21_FinalProject
         {
             this.BackColor = Color.White;
         }
-
-        private void FriendList_UCItem_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
