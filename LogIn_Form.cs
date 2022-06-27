@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Sockets;
+using System.Net;
 
 namespace CS511.M21_FinalProject
 {
@@ -17,6 +19,8 @@ namespace CS511.M21_FinalProject
             InitializeComponent();
         }
 
+        AccountService accountService = new AccountService();
+        string endl = Environment.NewLine;
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox3.PasswordChar == '*')
@@ -33,8 +37,46 @@ namespace CS511.M21_FinalProject
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            var register_Form = new Register_Form();
+            Register_Form register_Form = new Register_Form();
             register_Form.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            // Reload if s.o registed
+            accountService.Load_Port_List();
+            accountService.Load_TKMK_List();
+
+            label6.Text = "";
+            bool error = false;
+
+            if (string.IsNullOrEmpty(textBox2.Text))
+            {
+                label6.Text += "Vui lòng nhập Tên tài khoản" + endl;
+                error = true;
+                if (string.IsNullOrEmpty(textBox3.Text))
+                {
+                    label6.Text += "Vui lòng nhập Mật khẩu" + endl;
+                    error = true;
+                }
+            }
+            else if (!accountService.map_TK_MK.ContainsKey(textBox2.Text))
+            {
+                label6.Text += "Tài khoản không tồn tại" + endl;
+                error = true;
+            }
+            else if (accountService.map_TK_MK[textBox2.Text].Item1 != textBox3.Text)
+            {
+                label6.Text += "Sai mật khẩu" + endl;
+                error = true;
+            }
+
+            if (error) return;
+
+            FriendList_Form friendList_Form = new FriendList_Form(accountService.GetPort_TK(textBox2.Text));
+            friendList_Form.Show();
+
+            this.Hide();
         }
     }
 }

@@ -16,6 +16,7 @@ namespace CS511.M21_FinalProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
             Application.Run(new LogIn_Form());
         }
     }

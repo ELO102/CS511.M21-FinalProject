@@ -27,8 +27,11 @@ namespace CS511.M21_FinalProject
         {
             JsonSerializer serializer = new JsonSerializer();
             serializer.NullValueHandling = NullValueHandling.Ignore;
+            string Path_save = @"E:\Study\CS511.M21\CS511.M21-FinalProject\Data\ClientJSON\" + this.port + ".json";
 
-            using (StreamWriter sw = new StreamWriter(@"E:\Study\CS511.M21\CS511.M21-FinalProject\Data\ClientJSON\"+this.port+".txt"))
+            if (!File.Exists(Path_save)) File.Create(Path_save).Dispose();
+
+            using (StreamWriter sw = new StreamWriter(Path_save))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
                 serializer.Serialize(writer, this);
@@ -47,6 +50,14 @@ namespace CS511.M21_FinalProject
             this.TK = new_acc.TK;
             this.MK = new_acc.MK;
             this.port = new_acc.port;
+
+            return;
+        }
+
+        public void LoadAccountPort(string port_)
+        {
+            string Path_load = @"E:\Study\CS511.M21\CS511.M21-FinalProject\Data\ClientJSON\" + port_ + ".json";
+            LoadAccountJSON(Path_load);
 
             return;
         }

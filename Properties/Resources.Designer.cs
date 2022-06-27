@@ -63,6 +63,16 @@ namespace CS511.M21_FinalProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlankAvata {
+            get {
+                object obj = ResourceManager.GetObject("BlankAvata", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap unvisible {
             get {
                 object obj = ResourceManager.GetObject("unvisible", resourceCulture);

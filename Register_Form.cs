@@ -64,6 +64,11 @@ namespace CS511.M21_FinalProject
                 label6.Text += "Tên tài khoản không được để trống" + endl;
                 error = true;
             }
+            else if (accountService.map_TK_MK.ContainsKey(textBox2.Text))
+            {
+                label6.Text += "Tên tài khoản đã được đăng ký" + endl;
+                error = true;
+            }
             if (string.IsNullOrEmpty(textBox5.Text))
             {
                 label6.Text += "Mật khẩu không được để trống";
@@ -77,7 +82,9 @@ namespace CS511.M21_FinalProject
             if (error) return;
 
             label6.Text = "Đăng ký thành công";
-            // accountService.CreateAccount(textBox1.Text, textBox2.Text, textBox5.Text);
+            accountService.CreateAccount(textBox1.Text, textBox2.Text, textBox5.Text);
+
+            this.Close();
         }
     }
 }

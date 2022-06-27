@@ -75,6 +75,7 @@
     <Compile Include="LogIn_Form.Designer.cs">
       <DependentUpon>LogIn_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="MessengerService.cs" />
     <Compile Include="Register_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,7 +84,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ClientService.cs" />
     <EmbeddedResource Include="ChatBox_Form.resx">
       <DependentUpon>ChatBox_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,6 +128,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\Image\visible.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Image\BlankAvata.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

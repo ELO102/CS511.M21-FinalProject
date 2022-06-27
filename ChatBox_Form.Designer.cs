@@ -42,7 +42,7 @@
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(453, 330);
             this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n\n";
+            this.richTextBox1.Text = "";
             // 
             // richTextBox2
             // 
@@ -51,13 +51,15 @@
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(453, 78);
             this.richTextBox2.TabIndex = 1;
-            this.richTextBox2.Text = "1\n1\n1\n1\n1";
+            this.richTextBox2.Text = "";
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::CS511.M21_FinalProject.Properties.Resources.BlankAvata;
             this.pictureBox1.Location = new System.Drawing.Point(471, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 

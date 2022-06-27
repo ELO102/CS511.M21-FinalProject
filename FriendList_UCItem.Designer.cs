@@ -36,10 +36,12 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Image = global::CS511.M21_FinalProject.Properties.Resources.BlankAvata;
             this.pictureBox2.Location = new System.Drawing.Point(3, 3);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 6);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(70, 70);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 15;
             this.pictureBox2.TabStop = false;
             // 
@@ -74,6 +76,9 @@
             this.MinimumSize = new System.Drawing.Size(252, 76);
             this.Name = "FriendList_UCItem";
             this.Size = new System.Drawing.Size(252, 76);
+            this.Click += new System.EventHandler(this.FriendList_UCItem_Click);
+            this.MouseLeave += new System.EventHandler(this.FriendList_UCItem_MouseLeave);
+            this.MouseHover += new System.EventHandler(this.FriendList_UCItem_MouseHover);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
