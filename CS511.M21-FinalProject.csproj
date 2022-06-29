@@ -75,6 +75,12 @@
     <Compile Include="LogIn_Form.Designer.cs">
       <DependentUpon>LogIn_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="MessageBox_UCItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MessageBox_UCItem.Designer.cs">
+      <DependentUpon>MessageBox_UCItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="MessengerService.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -100,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LogIn_Form.resx">
       <DependentUpon>LogIn_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageBox_UCItem.resx">
+      <DependentUpon>MessageBox_UCItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Register_Form.resx">
       <DependentUpon>Register_Form.cs</DependentUpon>
@@ -143,6 +152,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\Image\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Image\color.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

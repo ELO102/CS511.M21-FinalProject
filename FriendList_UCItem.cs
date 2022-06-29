@@ -20,11 +20,11 @@ namespace CS511.M21_FinalProject
             InitializeComponent(); 
             acc.LoadAccountPort(port);
             Load_UI();
-            if (!checkServerStatus(port))
-            {
-                button1.Image = Properties.Resources.remove;
-                button1.Text = "Offline";
-            }
+            //if (!checkServerStatus(port))
+            //{
+            //    button1.Image = Properties.Resources.remove;
+            //    button1.Text = "Offline";
+            //}
         }
         private Account_Class acc = new Account_Class();
 

@@ -22,7 +22,6 @@ namespace CS511.M21_FinalProject
             IP_server = new IPEndPoint(IPAddress.Any, int.Parse(port));
             server_port=port;
             InitServer();
-
             threadServer = new Thread(AcceptConnect_and_ReceiveMsg);
             threadServer.IsBackground = true;
             threadServer.Start();
@@ -58,7 +57,7 @@ namespace CS511.M21_FinalProject
                     if (message != "")
                     {
                         // Get port 
-                        string port_come = message.Split('|')[0];
+                        string port_come = message.Split('|')[3];
                         // Handler unknown Client connect
                         if (!MessageOfTarget.ContainsKey(port_come))
                             MessageOfTarget.Add(port_come, new List<string>());
@@ -73,11 +72,12 @@ namespace CS511.M21_FinalProject
             }
         }
 
-        public void Send(string msg, string port, string Ten)
+        public void Send(string msg, string port, string Ten, string FontName, string FontSize, Color color)
         {
             if (string.IsNullOrEmpty(msg)) return;
 
-            msg = $"{server_port}|User:{Ten}|{DateTime.Now.ToString("HH:mm:ss")} > " + msg;
+            // FontName - FontSize - color - port - Ten - time > msg
+            msg = $"{FontName}|{FontSize}|{color.ToArgb()}|{server_port}|User:{Ten}|{DateTime.Now.ToString("HH:mm:ss")} > " + msg;
 
             try
             {
@@ -85,7 +85,7 @@ namespace CS511.M21_FinalProject
                 IPEndPoint target_ip = new IPEndPoint(IPAddress.Parse("127.0.0.1"), int.Parse(port));
                 client.Connect(target_ip);
                 NetworkStream ns = client.GetStream();
-
+                
                 byte[] buffer = Encoding.UTF8.GetBytes(msg);
                 ns.Write(buffer, 0, buffer.Length);
 
@@ -104,7 +104,25 @@ namespace CS511.M21_FinalProject
             }
            
         }
+        public Tuple<string, Font, Color, string> MsgSplitter(string data)
+        {
+            // FontName - FontSize - color - title - msg
+            string[] splited_msg = data.Split('|');
 
+            Font font_msg = new Font(splited_msg[0], float.Parse(splited_msg[1]));
+            Color font_color = Color.FromArgb(int.Parse(splited_msg[2]));
+
+            string title = "";
+            for (int i = 3; i < 5; i++)
+            {
+                title += splited_msg[i] + "|";
+            }
+            title += splited_msg[5].Split('>')[0] + ">";
+
+            string msg = splited_msg[5].Split('>')[1];
+
+            return new Tuple<string, Font, Color, string> (title, font_msg, font_color, msg);
+        }
         public void ServerClose()
         {
             server.Stop();
