@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
+using System.Net.Sockets;
+using System.Net;
+using System.Net.NetworkInformation;
 
 namespace CS511.M21_FinalProject
 {
@@ -19,19 +22,22 @@ namespace CS511.M21_FinalProject
             acc.LoadAccountPort(port);
             messengerService = new MessengerService(acc.port);
             Load_FriendUI();
+            Text = acc.Ten;
+
+            CheckForIllegalCrossThreadCalls = false;
         }
 
         private Account_Class acc = new Account_Class();
         private AccountService accService = new AccountService();
         private MessengerService messengerService;
-        private List<string> curr_MessageBox;
         private string curr_target = "";
-        private Thread Check_new_Message;
+
+        Thread Update_mess;
 
         private void Load_FriendUI()
         {
             label3.Text = acc.Ten;
-            button1.Visible = false;
+            flowLayoutPanel1.Controls.Clear();
             foreach (int port in accService.list_port)
             {
                 if (port.ToString("0000") != acc.port)
@@ -59,24 +65,51 @@ namespace CS511.M21_FinalProject
                 }
             }
         }
+        public void Send_message()
+        {
+            string message = richTextBox2.Text;
+            messengerService.Send(message, curr_target, acc.Ten);
+            //ShowMessageText();
+            richTextBox2.Clear();
+        }
+
         private void FriendList_Form_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
         private void FriendItem_Click(object sender, EventArgs e)
         {
-            if (Check_new_Message != null) Check_new_Message.Abort();
+            pictureBox3.Visible = false;
             curr_target = ((Control)sender).Name;
-            curr_MessageBox = messengerService.GetMessage_Port(curr_target);
-            Check_new_Message = new Thread(Check_and_Update_MessageBox);
-            Check_new_Message.IsBackground = true;
-            Check_new_Message.Start();
+
+            if (Update_mess != null) Update_mess.Abort();
+            Update_mess = new Thread(() =>
+            {
+                while (true)
+                {
+                    if (curr_target != "")
+                    {
+                        if (messengerService.MessageOfTarget.ContainsKey(curr_target))
+                        {
+                            if (messengerService.MessageOfTarget[curr_target].Count != richTextBox1.Lines.Length)
+                            {
+                                richTextBox1.Lines = new string[messengerService.MessageOfTarget[curr_target].Count];
+                                richTextBox1.Lines = messengerService.MessageOfTarget[curr_target].ToArray();
+                            }
+                        }
+                        else
+                        {
+                            richTextBox1.Lines = new string[0];
+                        }
+                    }
+                }
+            });
+            Update_mess.IsBackground = true;
+            Update_mess.Start();
 
             Account_Class temp_acc = new Account_Class();
             temp_acc.LoadAccountPort(curr_target);
             label1.Text = temp_acc.Ten;
-            
-            ShowMessageText();
         }
         private void button3_Click(object sender, EventArgs e)
         {
@@ -87,30 +120,34 @@ namespace CS511.M21_FinalProject
             Send_message();
         }
 
-        public void Send_message()
+        private void richTextBox2_KeyDown(object sender, KeyEventArgs e)
         {
-            string message = richTextBox2.Text;
-            messengerService.Send(message, curr_target);
-            ShowMessageText();
-            richTextBox2.Clear();
-        }
-        private void Check_and_Update_MessageBox()
-        {
-            while (true)
+            if(e.KeyData == Keys.Enter)
             {
-                if (curr_target != "")
-                {
-                    if (curr_MessageBox.Count() != messengerService.GetMessage_Port(curr_target).Count())
-                    {
-                        curr_MessageBox = messengerService.GetMessage_Port(curr_target);
-                        ShowMessageText();
-                    }
-                }
+                richTextBox2.Text = richTextBox2.Text.Split('\n')[0];
+                Send_message();
+                richTextBox2.Clear();
             }
         }
-        private void ShowMessageText()
+
+        private bool checkServerStatus(string port)
         {
-            richTextBox1.Lines = curr_MessageBox.ToArray();
+            TcpClient tcpClient = new TcpClient();
+
+            try
+            {
+                tcpClient.Connect("127.0.0.1", int.Parse(port));
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            button1.FlatAppearance.MouseOverBackColor = button1.BackColor;
+            button1.BackColor = Color.WhiteSmoke;
         }
     }
 }

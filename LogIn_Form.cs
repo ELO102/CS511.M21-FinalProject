@@ -73,10 +73,27 @@ namespace CS511.M21_FinalProject
 
             if (error) return;
 
-            FriendList_Form friendList_Form = new FriendList_Form(accountService.GetPort_TK(textBox2.Text));
-            friendList_Form.Show();
+            try
+            {
+                FriendList_Form friendList_Form = new FriendList_Form(accountService.GetPort_TK(textBox2.Text));
+                friendList_Form.Show();
+            }
+            catch
+            {
+                label6.Text += "Tài khoản đang được đăng nhập";
+                return;
+            }
 
             this.Hide();
+        }
+
+        private void textBox3_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                textBox3.Text = textBox3.Text.Split('\n')[0];
+                button3_Click(sender, new EventArgs() );
+            }
         }
     }
 }

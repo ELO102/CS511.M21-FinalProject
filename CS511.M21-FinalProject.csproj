@@ -133,10 +133,16 @@
     <None Include="Properties\Image\BlankAvata.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\Image\refresh.png" />
+    <None Include="Properties\Image\reload.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\Image\reload.png" />
+    <None Include="Properties\Image\background-message.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Image\correct.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Image\remove.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
